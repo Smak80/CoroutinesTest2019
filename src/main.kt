@@ -1,45 +1,59 @@
 import kotlinx.coroutines.*
 import java.lang.Thread.sleep
+import java.util.*
+import java.util.concurrent.Executors.newFixedThreadPool
 import kotlin.concurrent.thread
 import kotlin.random.Random
 
-val r = Random(0)
+val r = Random(Date().time)
+val delta = 10000
 
 suspend fun printResult(i: Int){
-    val sh = r.nextInt(0, 1000)
-    delay(1000L+sh)
-    println("Coroutine output $i, $sh")
+    val s = 1000L+r.nextInt(0, delta)
+    delay(s)
+    println("Coroutine output $i, $s")
 }
 
 fun main() {
     var beg = 0L
     var end = 0L
     beg = System.currentTimeMillis()
-    /*runBlocking {
+
+    runBlocking{
         for (i in 1..100000) {
             val j = launch {
                 printResult(i)
             }
         }
-    }*/
+    }
 
-
-    /*for (i in 1..100000) {
-        val j = thread {
-            val sh = r.nextInt(0, 1000)
-            sleep(1000L+sh)
-            println("Thread output $i, $sh")
-        }
-    }*/
-
-
+    end = System.currentTimeMillis()
+    val cd = end-beg
 
     /*GlobalScope.launch{
 
     }
      */
 
-    runBlocking{
+    val t = mutableListOf<Thread>()
+    beg = System.currentTimeMillis()
+    for (i in 1..100000) {
+        t.add(thread {
+            val s = 1000L + r.nextInt(0, delta)
+            sleep(s)
+            println("Thread output $i, $s")
+        })
+    }
+    for(th in t){
+        th.join()
+    }
+
+    end = System.currentTimeMillis()
+    val td = end-beg
+    println("Finished coruotines in $cd ms ...")
+    println("Finished threads in $td ms ...")
+
+    /*runBlocking{
         val d = mutableListOf<Deferred<Int>>()
         for (i in 1..10){
             d.add(async{
@@ -56,8 +70,5 @@ fun main() {
             println("Got $v")
         }
         println("runBlocking output $s")
-    }
-    end = System.currentTimeMillis()
-    val d = end-beg
-    println("Finishing program in $d ms ...")
+    }*/
 }
