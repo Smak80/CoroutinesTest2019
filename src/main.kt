@@ -5,7 +5,7 @@ import kotlin.concurrent.thread
 import kotlin.random.Random
 
 val r = Random(Date().time)
-val delta = 10000
+val delta = 15000
 
 
 /*suspend fun printResult(i: Int){
@@ -48,6 +48,10 @@ fun main() {
     val td = end - beg
 
     println("Finished threads in $td ms ...")
+
+    var a=5
+    var b=3
+    a+b
 
     /*runBlocking{
         val d = mutableListOf<Deferred<Int>>()
