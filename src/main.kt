@@ -47,7 +47,6 @@ fun main() {
     val td = end - beg
     println("Finished coruotines in $cd ms ...")
     println("Finished threads in $td ms ...")
-    println("Hello world")
     //Hello World2
     println("Hello world2part")
     /*runBlocking{
