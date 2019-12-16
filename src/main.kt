@@ -8,11 +8,11 @@ val r = Random(Date().time)
 val delta = 10000
 
 
-suspend fun printResult(i: Int){
+/*suspend fun printResult(i: Int){
     val s = 1000L+r.nextInt(0, delta)
     delay(s)
     println("Coroutine output $i, $s")
-}
+}*/
 
 fun main() {
     var beg = 0L
@@ -30,6 +30,7 @@ fun main() {
 
     end = System.currentTimeMillis()
     val cd = end - beg
+    println("Finished coruotines in $cd ms ...")
 
     val t = mutableListOf<Thread>()
     beg = System.currentTimeMillis()
@@ -45,7 +46,7 @@ fun main() {
 
     end = System.currentTimeMillis()
     val td = end - beg
-    println("Finished coruotines in $cd ms ...")
+
     println("Finished threads in $td ms ...")
 
     /*runBlocking{
