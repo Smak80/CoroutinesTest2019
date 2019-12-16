@@ -7,11 +7,12 @@ import kotlin.random.Random
 val r = Random(Date().time)
 val delta = 10000
 
-suspend fun printResult(i: Int){
+//Функция не используется.
+/*suspend fun printResult(i: Int){
     val s = 1000L+r.nextInt(0, delta)
     delay(s)
     println("Coroutine output $i, $s")
-}
+}*/
 
 fun main() {
     var beg = 0L
@@ -21,10 +22,8 @@ fun main() {
     runBlocking{
         for (i in 1..100000) {
             val j = launch {
-                //printResult(i)
                 val s = 1000L+r.nextInt(0, delta)
                 delay(s)
-                //println("Coroutine output $i, $s")
             }
         }
     }
@@ -32,18 +31,12 @@ fun main() {
     end = System.currentTimeMillis()
     val cd = end-beg
 
-    /*GlobalScope.launch{
-
-    }
-     */
-
     val t = mutableListOf<Thread>()
     beg = System.currentTimeMillis()
     for (i in 1..100000) {
         t.add(thread {
             val s = 1000L + r.nextInt(0, delta)
             sleep(s)
-            //println("Thread output $i, $s")
         })
     }
     for(th in t){
