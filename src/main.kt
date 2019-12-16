@@ -48,6 +48,10 @@ fun main() {
     println("Finished coruotines in $cd ms ...")
     println("Finished threads in $td ms ...")
 
+    var a=5
+    var b=3
+    a+b
+
     /*runBlocking{
         val d = mutableListOf<Deferred<Int>>()
         for (i in 1..10){
