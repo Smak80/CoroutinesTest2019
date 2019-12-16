@@ -22,7 +22,7 @@ fun main() {
     runBlocking {
         for (i in 1..100000) {
             val j = launch {
-                val s = 1000L+r.nextInt(0, delta)
+                val s = 1000L + r.nextInt(0, delta)
                 delay(s)
             }
         }
@@ -48,6 +48,8 @@ fun main() {
     println("Finished coruotines in $cd ms ...")
     println("Finished threads in $td ms ...")
     println("Hello world")
+    //Hello World2
+    println("Hello world2part")
     /*runBlocking{
         val d = mutableListOf<Deferred<Int>>()
         for (i in 1..10){
