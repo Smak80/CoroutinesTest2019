@@ -21,7 +21,10 @@ fun main() {
     runBlocking{
         for (i in 1..100000) {
             val j = launch {
-                printResult(i)
+                //printResult(i)
+                val s = 1000L+r.nextInt(0, delta)
+                delay(s)
+                //println("Coroutine output $i, $s")
             }
         }
     }
@@ -40,7 +43,7 @@ fun main() {
         t.add(thread {
             val s = 1000L + r.nextInt(0, delta)
             sleep(s)
-            println("Thread output $i, $s")
+            //println("Thread output $i, $s")
         })
     }
     for(th in t){
