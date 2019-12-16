@@ -7,7 +7,7 @@ import kotlin.random.Random
 val r = Random(Date().time)
 val delta = 15000
 
-//Функция не используется.
+
 /*suspend fun printResult(i: Int){
     val s = 1000L+r.nextInt(0, delta)
     delay(s)
@@ -30,6 +30,7 @@ fun main() {
 
     end = System.currentTimeMillis()
     val cd = end - beg
+    println("Finished coruotines in $cd ms ...")
 
     val t = mutableListOf<Thread>()
     beg = System.currentTimeMillis()
@@ -45,7 +46,7 @@ fun main() {
 
     end = System.currentTimeMillis()
     val td = end - beg
-    println("Finished coruotines in $cd ms ...")
+
     println("Finished threads in $td ms ...")
 
     var a=5
