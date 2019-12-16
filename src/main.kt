@@ -7,12 +7,12 @@ import kotlin.random.Random
 val r = Random(Date().time)
 val delta = 10000
 
-//Функция не используется.
-/*suspend fun printResult(i: Int){
+
+suspend fun printResult(i: Int){
     val s = 1000L+r.nextInt(0, delta)
     delay(s)
     println("Coroutine output $i, $s")
-}*/
+}
 
 fun main() {
     var beg = 0L
@@ -47,10 +47,6 @@ fun main() {
     val td = end - beg
     println("Finished coruotines in $cd ms ...")
     println("Finished threads in $td ms ...")
-
-    var a=5
-    var b=3
-    a+b
 
     /*runBlocking{
         val d = mutableListOf<Deferred<Int>>()
