@@ -7,8 +7,8 @@ import kotlin.random.Random
 val r = Random(Date().time)
 val delta = 10000
 
-suspend fun printResult(i: Int){
-    val s = 1000L+r.nextInt(0, delta)
+suspend fun printResult(i: Int) {
+    val s = 1000L + r.nextInt(0, delta)
     delay(s)
     println("Coroutine output $i, $s")
 }
@@ -18,11 +18,11 @@ fun main() {
     var end = 0L
     beg = System.currentTimeMillis()
 
-    runBlocking{
+    runBlocking {
         for (i in 1..100000) {
             val j = launch {
                 //printResult(i)
-                val s = 1000L+r.nextInt(0, delta)
+                val s = 1000L + r.nextInt(0, delta)
                 delay(s)
                 //println("Coroutine output $i, $s")
             }
@@ -30,7 +30,7 @@ fun main() {
     }
 
     end = System.currentTimeMillis()
-    val cd = end-beg
+    val cd = end - beg
 
     /*GlobalScope.launch{
 
@@ -46,15 +46,15 @@ fun main() {
             //println("Thread output $i, $s")
         })
     }
-    for(th in t){
+    for (th in t) {
         th.join()
     }
 
     end = System.currentTimeMillis()
-    val td = end-beg
+    val td = end - beg
     println("Finished coruotines in $cd ms ...")
     println("Finished threads in $td ms ...")
-
+    println("Hello world")
     /*runBlocking{
         val d = mutableListOf<Deferred<Int>>()
         for (i in 1..10){
