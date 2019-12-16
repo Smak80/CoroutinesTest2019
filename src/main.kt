@@ -50,6 +50,10 @@ fun main() {
     //Hello World2
     println("Hello world2part")
 
+    var a=5
+    var b=3
+    a+b
+
     /*runBlocking{
         val d = mutableListOf<Deferred<Int>>()
         for (i in 1..10){
