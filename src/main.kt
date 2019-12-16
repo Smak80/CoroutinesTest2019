@@ -5,7 +5,7 @@ import kotlin.concurrent.thread
 import kotlin.random.Random
 
 val r = Random(Date().time)
-val delta = 10000
+val delta = 15000
 
 //Функция не используется.
 /*suspend fun printResult(i: Int){
