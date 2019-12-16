@@ -47,7 +47,6 @@ fun main() {
     val td = end - beg
     println("Finished coruotines in $cd ms ...")
     println("Finished threads in $td ms ...")
-    println("Hello world")
     /*runBlocking{
         val d = mutableListOf<Deferred<Int>>()
         for (i in 1..10){
